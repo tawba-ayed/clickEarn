@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity @Getter
 @Setter
 @Table(name = "entreprises")
@@ -20,5 +22,8 @@ public class Entreprise {
 
     @Column(name = "nom_entreprise")
     private String nomEntreprise;
+
+    @OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL)
+    private List<Campagne> campagnes;
 
 }
