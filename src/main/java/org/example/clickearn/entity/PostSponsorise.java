@@ -16,9 +16,12 @@ public class PostSponsorise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+
     @ManyToOne
-    @JoinColumn(name = "entreprise_id", nullable = false)
-    private Entreprise entreprise;
+    @JoinColumn(name = "campagne_id")
+    private Campagne campagne;
+
 
     @Column(columnDefinition = "TEXT")
     private String contenu;
