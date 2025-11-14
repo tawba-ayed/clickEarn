@@ -1,0 +1,380 @@
+/* Variables CSS cohérentes avec le design global */
+:root {
+  --primary-color: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary-color: #7209b7;
+  --accent-color: #4cc9f0;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --error-color: #e63946;
+  --success-color: #2a9d8f;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+  --section-bg: #f8f9fa;
+}
+
+/* Styles généraux */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Conteneur principal */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+/* Carte d'inscription */
+.register-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 650px;
+  padding: 40px 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* En-tête */
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.register-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.register-header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Messages */
+.success-message {
+  background-color: rgba(42, 157, 143, 0.1);
+  border-left: 4px solid var(--success-color);
+  color: var(--success-color);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message {
+  background-color: rgba(230, 57, 70, 0.1);
+  border-left: 4px solid var(--error-color);
+  color: var(--error-color);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.success-icon, .error-icon {
+  margin-right: 8px;
+}
+
+/* Formulaire */
+.register-form {
+  margin-bottom: 25px;
+}
+
+.form-section {
+  background: var(--section-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 25px;
+}
+
+.form-section h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--white);
+  font-family: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Indicateurs et aides */
+.password-strength {
+  margin-top: 8px;
+}
+
+.strength-bar {
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--error-color);
+  transition: var(--transition);
+}
+
+.form-group input:valid + .password-strength .strength-fill {
+  width: 60%;
+  background: #ffa726;
+}
+
+.form-group input:valid[data-strength="strong"] + .password-strength .strength-fill {
+  width: 100%;
+  background: var(--success-color);
+}
+
+.password-hint, .interests-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.char-count {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* Aperçu avatar */
+.avatar-preview {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.avatar-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+/* Options du formulaire */
+.form-options {
+  margin-bottom: 25px;
+}
+
+.terms-agreement, .newsletter-optin {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.terms-agreement input, .newsletter-optin input {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.terms-agreement label, .newsletter-optin label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.terms-agreement a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.terms-agreement a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Bouton de soumission */
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submit-button.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pied de page */
+.register-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.register-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.register-footer a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.business-redirect {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 30px 25px;
+    max-width: 500px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .form-section {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 25px 20px;
+  }
+  
+  .terms-agreement, .newsletter-optin {
+    align-items: flex-start;
+  }
+  
+  .terms-agreement label, .newsletter-optin label {
+    font-size: 0.85rem;
+  }
+}
