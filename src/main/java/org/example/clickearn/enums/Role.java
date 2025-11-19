@@ -1,4 +1,4 @@
-package org.example.clickearn.entity;
+package org.example.clickearn.enums;
 
 public enum Role {
     VISITEUR,

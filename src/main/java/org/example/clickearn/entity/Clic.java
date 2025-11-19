@@ -1,8 +1,7 @@
 package org.example.clickearn.entity;
 
 
-import jakarta.persistence.*;
-import lombok.Getter;
+import javax.persistence.*;import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 

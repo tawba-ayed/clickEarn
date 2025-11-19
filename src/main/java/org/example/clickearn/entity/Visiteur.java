@@ -1,29 +1,31 @@
 package org.example.clickearn.entity;
 
-import jakarta.persistence.*;
-import lombok.Getter;
+import javax.persistence.*;import lombok.Getter;
 import lombok.Setter;
+import java.time.LocalDateTime;
 
-@Entity @Getter
+@Entity
+@Getter
 @Setter
 @Table(name = "visiteurs")
 public class Visiteur {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "utilisateur_id", nullable = false)
-    private Utilisateur utilisateur;
+    @Column(name = "ip_address", length = 45)
+    private String ipAddress;
 
-    private String nom;
-    private String prenom;
-    private String bio;
-    private String avatarUrl;
+    @Column(name = "user_agent", length = 500)
+    private String userAgent;
 
-    @Column(columnDefinition = "TEXT")
-    private String interets;
+    @Column(name = "premiere_visite")
+    private LocalDateTime premiereVisite = LocalDateTime.now();
 
-    @Column(nullable = false)
-    private Double solde = 0.0;
+    @Column(name = "derniere_visite")
+    private LocalDateTime derniereVisite;
 
+    @Column(name = "nombre_visites")
+    private Integer nombreVisites = 1;
 }

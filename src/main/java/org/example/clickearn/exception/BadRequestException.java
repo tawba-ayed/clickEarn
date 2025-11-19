@@ -1,4 +1,7 @@
 package org.example.clickearn.exception;
 
-public class ResourceNotFoundException {
+public class BadRequestException extends RuntimeException {
+    public BadRequestException(String message) {
+        super(message);
+    }
 }

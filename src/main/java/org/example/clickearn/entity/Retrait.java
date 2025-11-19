@@ -1,8 +1,7 @@
 package org.example.clickearn.entity;
 
-
-import jakarta.persistence.*;
-import lombok.Getter;
+import org.example.clickearn.enums.StatutRetrait;
+import javax.persistence.*;import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
@@ -16,18 +15,23 @@ public class Retrait {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // --- Relation vers le visiteur (participant) ---
-    @ManyToOne
-    @JoinColumn(name = "participant_id", nullable = false)
-    private Visiteur participant;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "utilisateur_id", nullable = false)
+    private Utilisateur utilisateur;
 
-    // --- Date et heure du retrait ---
-    private LocalDateTime date = LocalDateTime.now();
-
-    // --- Montant retiré ---
+    @Column(nullable = false)
     private Double montant;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(length = 20)
     private StatutRetrait statut = StatutRetrait.EN_ATTENTE;
+
+    @Column(name = "date_demande")
+    private LocalDateTime dateDemande = LocalDateTime.now();
+
+    @Column(name = "date_traitement")
+    private LocalDateTime dateTraitement;
+
+    @Column(length = 255)
+    private String commentaire;
 }

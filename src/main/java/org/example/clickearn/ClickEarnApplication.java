@@ -9,5 +9,4 @@ public class ClickEarnApplication {
     public static void main(String[] args) {
         SpringApplication.run(ClickEarnApplication.class, args);
     }
-
 }

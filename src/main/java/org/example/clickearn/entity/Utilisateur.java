@@ -1,8 +1,9 @@
 package org.example.clickearn.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import org.example.clickearn.enums.Role;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,12 +30,13 @@ public class Utilisateur implements UserDetails {
 
     private String phoneNumber;
 
-
     // --- UserDetails methods ---
     @Override
+
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return java.util.Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
+
     @Override public String getPassword() { return motDePasse; }
     @Override public String getUsername() { return email; }
     @Override public boolean isAccountNonExpired() { return true; }
